@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./header/header.component";
-import { UserComponent } from "./user/user.component";
 import { DUMMY_USERS } from './constants/users';
-import { TasksComponent } from './tasks/tasks.component';
-import { NgFor, NgIf } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent, NgFor, NgIf],
+  // standalone: true, //ANOTAÇÃO isso e o imports se aplicam quando não utilizamos modulos - apenas as versões mais recentes do angular permitem isso - por isso é comum ver modulos em projetos
+  // imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent, NgFor, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -25,6 +21,5 @@ export class AppComponent {
   onSelectUser(id: string){  
     this.selectedId = id;
   }
-
 
 }
