@@ -1,0 +1,10 @@
+<div>
+    <button (click)="onSelectUser()">
+        <!--ANOTAÇÃO O imagePath é um computed (devido o signal usado no SelectedUser) -->
+        <!--ANOTAÇÃO Computed devem ser acessados com parenteses igual a metodos -->
+        <img [src]="imagePath()"        
+        [alt]="selectedUser().name">
+        <!--ANOTAÇÃO SelectedUser está sendo acessado igual a um metodo por ser um signal -->
+        <span>{{selectedUser().name}}</span>
+    </button>
+</div>

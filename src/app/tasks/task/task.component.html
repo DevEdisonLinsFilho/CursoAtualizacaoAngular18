@@ -1,0 +1,10 @@
+<app-card>
+    <article>
+        <h2>{{task.title}}</h2>
+        <time>{{task.dueDate | date:'fullDate'}}</time> <!--ANOTAÇÃO este "| date" faz com que o valor string seja exibido de uma forma mais agradavel. Necessita de importação no TS-->
+        <p>{{task.summary}}</p>
+        <p class="actions">
+            <button (click)="onCompleteTask()">Complete</button>
+        </p>
+    </article>
+</app-card>

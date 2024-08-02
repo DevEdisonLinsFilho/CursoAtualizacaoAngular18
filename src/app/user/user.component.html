@@ -1,0 +1,6 @@
+<app-card>
+    <button [class.active]="selected" (click)="onSelectUser()"><!--ANOTAÇÃO [class.active] será um css que será ativo apenas quando a propriedade parametro (selected) for true -->
+        <img [src]="imagePath" [alt]="user.name">
+        <span>{{user.name}}</span>
+    </button>
+</app-card>

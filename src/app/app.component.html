@@ -1,0 +1,21 @@
+<app-header/>
+
+<main>
+   
+    <ul id="users">
+        <!-- @for(user of users; track user.id){  ANOTAÇÃO Esta é a forma nova de se fazer loop e condicional no angular, a partir do 17 -->
+        <li *ngFor="let user of users"> <!-- ANOTAÇÃO Este ngFor como diretiva, necessita de importação no arquivo ts-->
+            <app-user [user]="user" [selected]="user!.id === selectedId"  (select)="onSelectUser($event)"/>
+        </li>    
+        <!-- } -->                           
+    </ul>
+
+    <!-- @if(selectedUser){ --> <!--ANOTAÇÃO Com este if, o angular identifica que o parametro nunca será null e não é necessário uso do simbolo !-->
+        <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser!.name" [userId]="selectedUser!.id"/><!--ANOTAÇÃO com este ngIf antigo, é necessário indicar o !, o Angular não é capaz de identificar que não será undefined sozinho-->
+    <!-- }@else { -->
+     <ng-template #fallback> <!-- ANOTAÇÃO ng-template utilizado na estrutura antiga do Else -->
+         <p id="fallback">Select a user to see their tasks!</p>
+     </ng-template>
+    <!-- }  -->
+
+</main>
